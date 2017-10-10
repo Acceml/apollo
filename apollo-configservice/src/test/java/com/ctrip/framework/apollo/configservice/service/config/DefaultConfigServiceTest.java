@@ -56,7 +56,6 @@ public class DefaultConfigServiceTest {
     defaultNamespaceName = ConfigConsts.NAMESPACE_APPLICATION;
     someDataCenter = "someDC";
     someClientIp = "someClientIp";
-
     when(grayReleaseRulesHolder.findReleaseIdFromGrayReleaseRule(anyString(), anyString(),
         anyString(), anyString(), anyString())).thenReturn(null);
   }

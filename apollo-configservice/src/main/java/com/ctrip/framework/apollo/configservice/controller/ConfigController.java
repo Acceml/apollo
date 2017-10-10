@@ -66,6 +66,15 @@ public class ConfigController {
                                   @RequestParam(value = "ip", required = false) String clientIp,
                                   @RequestParam(value = "messages", required = false) String messagesAsString,
                                   HttpServletRequest request, HttpServletResponse response) throws IOException {
+    System.out.println("appId:" + appId);
+    System.out.println("clusterName:" + clusterName);
+    System.out.println("namespace:" + namespace);
+    System.out.println("dataCenter:" + dataCenter);
+    System.out.println("clientSideReleaseKey:" + clientSideReleaseKey);
+    System.out.println("clientIp:" + clientIp);
+    System.out.println("messagesAsString:" + messagesAsString);
+    System.out.println("request:" + request);
+    System.out.println("response" + response);
     String originalNamespace = namespace;
     //strip out .properties suffix
     namespace = namespaceUtil.filterNamespaceName(namespace);
@@ -216,6 +225,7 @@ public class ConfigController {
       try {
         notificationMessages = gson.fromJson(messagesAsString, ApolloNotificationMessages.class);
       } catch (Throwable ex) {
+        System.out.println("transformMessages.error");
         Tracer.logError(ex);
       }
     }
